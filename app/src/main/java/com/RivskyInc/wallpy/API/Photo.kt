@@ -1,11 +1,16 @@
 package com.RivskyInc.wallpy.API
 
 data class Photo(
-
-    val next_page: String,
-    val page: Int,
-    val per_page: Int,
-    val prev_page: String,
-    val total_results: Int
+    val alt: String,
+    val avg_color: String,
+    val height: Int,
+    val id: Int,
+    val liked: Boolean,
+    val photographer: String,
+    val photographer_id: Int,
+    val photographer_url: String,
+    val src: Src,
+    val url: String,
+    val width: Int
 
 )

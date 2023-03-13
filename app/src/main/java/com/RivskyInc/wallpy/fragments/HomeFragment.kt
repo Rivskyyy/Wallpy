@@ -1,33 +1,35 @@
 package com.RivskyInc.wallpy.fragments
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
+import com.RivskyInc.wallpy.API.Photo
 import com.RivskyInc.wallpy.Adapter.Adapter
-import com.RivskyInc.wallpy.R
 import com.RivskyInc.wallpy.Repository.WallpaperRepository
 import com.RivskyInc.wallpy.ViewModelFactory.ViewModel
 import com.RivskyInc.wallpy.ViewModelFactory.WallpaperViewModelFactory
-import com.RivskyInc.wallpy.databinding.ActivityMainBinding
 import com.RivskyInc.wallpy.databinding.FragmentHomeBinding
 
 
 class HomeFragment : Fragment() {
 
-    private lateinit var binding : FragmentHomeBinding
-    lateinit var viewModel : ViewModel
-    lateinit var adapter : Adapter
+    private lateinit var binding: FragmentHomeBinding
+    private lateinit var viewModel: ViewModel
+    private lateinit var wallAdapter: Adapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
-        binding =  FragmentHomeBinding.inflate(layoutInflater, container, false )
+        binding = FragmentHomeBinding.inflate(layoutInflater, container, false)
 
         binding.buttonSearch.setOnClickListener {
 
@@ -38,9 +40,40 @@ class HomeFragment : Fragment() {
         val repository = WallpaperRepository()
         val viewModelFactory = WallpaperViewModelFactory(repository)
 
-        viewModel = ViewModelProvider( this, viewModelFactory).get(ViewModel::class.java)
+        viewModel =
+            ViewModelProvider(this@HomeFragment, viewModelFactory)[ViewModel::class.java]
 
         setupRecyclerView()
+
+//        viewModel.wallpaperList.observe(viewLifecycleOwner, Observer {
+//            if ( it.isSuccessful){
+//                val response = it.body()
+//                wallAdapter.setWallpaperData(response?.photo as ArrayList<Photo>,
+//                    this@HomeFragment.requireContext())
+//            }
+//        })
+        try {
+
+            viewModel.wallpaperList.observe(viewLifecycleOwner, Observer {
+
+                if (it.isSuccessful) {
+                    val response = it.body()
+
+                    if (response != null) {
+                        wallAdapter.setWallpaperData(
+                            response.photos as ArrayList<Photo>,
+                            this
+                        )
+                    }
+
+                }
+            })
+
+
+        } catch (e: java.lang.NullPointerException) {
+            Log.d("Error", "Null ")
+        }
+
 
         return binding.root
 
@@ -49,11 +82,11 @@ class HomeFragment : Fragment() {
 
     private fun setupRecyclerView() {
 
-        adapter = Adapter()
+        wallAdapter = Adapter()
 
         binding.recyclerView.apply {
 
-            adapter = adapter
+            adapter = wallAdapter
             layoutManager = GridLayoutManager(this@HomeFragment.context, 2)
 
 

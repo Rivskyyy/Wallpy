@@ -5,18 +5,18 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.RivskyInc.wallpy.API.Photo
-import com.RivskyInc.wallpy.API.WallpaperResponse
 import com.RivskyInc.wallpy.databinding.ItemRawWallpaperBinding
+import com.RivskyInc.wallpy.fragments.HomeFragment
 import com.bumptech.glide.Glide
 
 class Adapter : RecyclerView.Adapter<Adapter.WallpaperViewHolder>() {
 
-    var list = ArrayList<WallpaperResponse>()
+    var list = ArrayList<Photo>()
     lateinit var context_ : Context
 
-    fun setWallpaperData(list : ArrayList<WallpaperResponse>, context: Context){
+    fun setWallpaperData(list: ArrayList<Photo>, context: HomeFragment){
         this.list = list
-        context_ = context
+        context_ = context.requireContext()
 
         notifyDataSetChanged()
 
