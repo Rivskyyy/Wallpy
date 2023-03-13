@@ -11,13 +11,15 @@
 
     <!-- TODO: Update blank fragment layout -->
 
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_blank_fragment"
-        android:textSize="30sp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+
         app:layout_constraintTop_toBottomOf="@+id/editTextSearch" />
 
     <EditText
@@ -25,9 +27,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/roboto_semi"
+        android:ems="10"
+        android:inputType="textPersonName"
 
         android:hint="Search..."
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/buttonSearch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:src="@drawable/img_search"
+        android:backgroundTint="@color/orange"
+        app:layout_constraintEnd_toEndOf="@+id/editTextSearch"
         app:layout_constraintTop_toTopOf="parent" />
 
 
