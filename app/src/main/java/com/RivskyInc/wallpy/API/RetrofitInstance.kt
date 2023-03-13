@@ -6,7 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 
 
-class ApiFactory {
+class RetrofitInstance {
 
     companion object{
 
