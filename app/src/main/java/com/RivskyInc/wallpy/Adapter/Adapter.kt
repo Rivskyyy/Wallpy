@@ -1,10 +1,12 @@
 package com.RivskyInc.wallpy.Adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.RivskyInc.wallpy.API.Photo
+import com.RivskyInc.wallpy.WallpaperDetailActivity
 import com.RivskyInc.wallpy.databinding.ItemRawWallpaperBinding
 import com.RivskyInc.wallpy.fragments.HomeFragment
 import com.bumptech.glide.Glide
@@ -37,5 +39,12 @@ class Adapter : RecyclerView.Adapter<Adapter.WallpaperViewHolder>() {
 
     override fun onBindViewHolder(holder: WallpaperViewHolder, position: Int) {
      Glide.with(holder.itemView).load(list[position].src.portrait).into(holder.binding.imageViewRaw)
+
+        holder.itemView.setOnClickListener {
+
+            val intent = Intent(context_, WallpaperDetailActivity::class.java)
+            intent.putExtra("URL", list[position].src.portrait)
+            context_.startActivities(arrayOf(intent))
+        }
     }
 }
