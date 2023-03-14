@@ -1,60 +1,41 @@
 package com.RivskyInc.wallpy.fragments
 
+import android.R
+import android.graphics.Color
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.text.SpannableString
+import android.text.style.ForegroundColorSpan
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.RivskyInc.wallpy.R
+import android.widget.TextView.BufferType
+import androidx.fragment.app.Fragment
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+import com.RivskyInc.wallpy.databinding.FragmentCategoryBinding
 
-/**
- * A simple [Fragment] subclass.
- * Use the [CategoryFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+
 class CategoryFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private lateinit var binding : FragmentCategoryBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_category, container, false)
-    }
+    ): View {
+        binding = FragmentCategoryBinding.inflate(layoutInflater, container, false )
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment CategoryFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            CategoryFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+//       val  buttonMinimalism =   binding.buttonMinimalism
+//        val text = SpannableString("M I N I M A L I S M ")
+//        // make "Clicks" (characters 0 to 5) Red
+//        // make "Clicks" (characters 0 to 5) Red
+//        text.setSpan(ForegroundColorSpan(Color.BLACK), 0, 10, 0)
+//        // make "Here" (characters 6 to 10) Blue
+//        // make "Here" (characters 6 to 10) Blue
+//        text.setSpan(ForegroundColorSpan(Color.WHITE), 11, 16, 0)
+//        // shove our styled text into the Button
+//        // shove our styled text into the Button
+//        buttonMinimalism.setText(text, BufferType.SPANNABLE)
+
+        return binding.root
     }
 }

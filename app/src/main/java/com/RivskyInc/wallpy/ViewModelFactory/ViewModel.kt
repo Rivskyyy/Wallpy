@@ -11,12 +11,24 @@ import retrofit2.Response
 class ViewModel(val repository : WallpaperRepository) : ViewModel() {
 
     lateinit var wallpaperList : MutableLiveData<Response<WallpaperResponse>>
-
+    lateinit var wallpaperListPopular : MutableLiveData<Response<WallpaperResponse>>
 
     init {
     wallpaperList = MutableLiveData()
-    getWallpaper("nature hd")
+        wallpaperListPopular = MutableLiveData()
+        getWallpaperPopular("popular wallpaper hd")
+        //getWallpaper("4k hd")
 
+    }
+
+     fun getWallpaperPopular(s: String) {
+        viewModelScope.launch {
+
+            val response = repository.getWallpaperPopular(s)
+
+            wallpaperListPopular.postValue(response)
+
+        }
     }
 
     fun getWallpaper(s : String){

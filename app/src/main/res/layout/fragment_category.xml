@@ -1,26 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient"
     tools:context=".fragments.CategoryFragment"
-    android:orientation="vertical">
+   >
 
 <LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="100dp"
-
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
     android:orientation="vertical">
 
-    <ImageButton
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:text="Nature"
-        android:background="@drawable/nature_back"
-        c
+    <android.widget.Button
+        android:id="@+id/buttonNature"
+        android:layout_width="400dp"
+        android:layout_height="90dp"
+        android:background="@drawable/nature_button_back"
+
+        android:text="@string/n_a_t_u_r_e"
+        android:textColor="@color/white"
         android:fontFamily="@font/roboto_semi"
+        android:textSize="20sp"
+        android:textStyle="bold"
+       />
+
+    <android.widget.Button
+        android:id="@+id/buttonSpace"
+        android:layout_width="400dp"
+        android:layout_height="90dp"
+        android:background="@drawable/space_button_back"
+        android:layout_marginTop="15dp"
+        android:text="@string/s_p_a_c_e"
+        android:textColor="@color/white"
+        android:fontFamily="@font/roboto_semi"
+        android:textSize="20sp"
+        android:textStyle="bold"
         />
+
+    <android.widget.Button
+        android:id="@+id/buttonMinimalism"
+        android:layout_width="400dp"
+        android:layout_height="90dp"
+        android:background="@drawable/minimalism"
+        android:layout_marginTop="15dp"
+        android:text="@string/m_i_n_i_m_a_l_i_s_m"
+
+        android:fontFamily="@font/roboto_semi"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        />
+
+    <android.widget.Button
+        android:id="@+id/buttonBlack"
+        android:layout_width="400dp"
+        android:layout_height="90dp"
+        android:background="@drawable/black"
+        android:layout_marginTop="15dp"
+        android:text="@string/b_l_a_c_k"
+
+        android:fontFamily="@font/roboto_semi"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        />
+    <android.widget.Button
+        android:id="@+id/buttonAnimals"
+        android:layout_width="400dp"
+        android:layout_height="90dp"
+        android:background="@drawable/animal_test6"
+        android:layout_marginTop="15dp"
+        android:text="@string/a_n_i_m_a_l_s"
+
+        android:fontFamily="@font/roboto_semi"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        />
+
+
+
 
 
 </LinearLayout>

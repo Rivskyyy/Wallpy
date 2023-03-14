@@ -11,11 +11,9 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.RivskyInc.wallpy.API.Photo
 import com.RivskyInc.wallpy.Adapter.Adapter
-import com.RivskyInc.wallpy.R
 import com.RivskyInc.wallpy.Repository.WallpaperRepository
 import com.RivskyInc.wallpy.ViewModelFactory.ViewModel
 import com.RivskyInc.wallpy.ViewModelFactory.WallpaperViewModelFactory
-import com.RivskyInc.wallpy.databinding.FragmentHomeBinding
 import com.RivskyInc.wallpy.databinding.FragmentPopularBinding
 
 
@@ -27,12 +25,10 @@ class PopularFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
 
         binding = FragmentPopularBinding.inflate(layoutInflater, container, false)
-
-
 
         val repository = WallpaperRepository()
         val viewModelFactory = WallpaperViewModelFactory(repository)
@@ -40,7 +36,9 @@ class PopularFragment : Fragment() {
         viewModel =
             ViewModelProvider(this@PopularFragment, viewModelFactory)[ViewModel::class.java]
         setupRecyclerView()
-        viewModel.getWallpaper("popular wallpapers")
+
+        viewModel.getWallpaper("4k wallpapers")
+
 
 
 
