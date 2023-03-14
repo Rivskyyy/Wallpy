@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.RivskyInc.wallpy.API.Photo
 import com.RivskyInc.wallpy.WallpaperDetailActivity
@@ -16,7 +17,7 @@ class Adapter : RecyclerView.Adapter<Adapter.WallpaperViewHolder>() {
     var list = ArrayList<Photo>()
     lateinit var context_ : Context
 
-    fun setWallpaperData(list: ArrayList<Photo>, context: HomeFragment){
+    fun setWallpaperData(list: ArrayList<Photo>, context: Fragment){
         this.list = list
         context_ = context.requireContext()
 
@@ -38,7 +39,9 @@ class Adapter : RecyclerView.Adapter<Adapter.WallpaperViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: WallpaperViewHolder, position: Int) {
+
      Glide.with(holder.itemView).load(list[position].src.portrait).into(holder.binding.imageViewRaw)
+
 
         holder.itemView.setOnClickListener {
 

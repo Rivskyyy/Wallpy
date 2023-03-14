@@ -13,7 +13,7 @@ interface Api {
     suspend fun getWallpapers(
 
         @Query("query")
-        query : String = " nature",
+        query : String = " ",
         @Query("per_page") per_page : Int = 80
 
     ) : Response<WallpaperResponse>

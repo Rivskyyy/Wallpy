@@ -1,15 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/orange"
-    tools:context=".fragments.CategoryFragment">
+    android:background="@drawable/gradient"
+    tools:context=".fragments.CategoryFragment"
+    android:orientation="vertical">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+
+    android:orientation="vertical">
+
+    <ImageButton
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="70dp"
+        android:text="Nature"
+        android:background="@drawable/nature_back"
+        c
+        android:fontFamily="@font/roboto_semi"
+        />
 
-</FrameLayout>
+
+</LinearLayout>
+
+</ScrollView>

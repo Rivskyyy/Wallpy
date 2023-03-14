@@ -35,6 +35,7 @@ class WallpaperDetailActivity : AppCompatActivity() {
          Glide.with(this).load(url).into(binding.photoView)
 
 
+
         binding.buttonSetWallpaper.setOnClickListener {
 
             GlobalScope.launch(Dispatchers.IO){
@@ -48,7 +49,7 @@ class WallpaperDetailActivity : AppCompatActivity() {
 
                 var wallpManger = WallpaperManager.getInstance(this@WallpaperDetailActivity)
                 wallpManger.suggestDesiredDimensions(height, width)
-                val finHeigt = wallpManger.desiredMinimumHeight 
+                val finHeigt = wallpManger.desiredMinimumHeight
                 val finWidht  = wallpManger.desiredMinimumWidth
 
                 try {

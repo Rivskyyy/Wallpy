@@ -12,9 +12,10 @@ class ViewModel(val repository : WallpaperRepository) : ViewModel() {
 
     lateinit var wallpaperList : MutableLiveData<Response<WallpaperResponse>>
 
+
     init {
     wallpaperList = MutableLiveData()
-    getWallpaper("nature")
+    getWallpaper("nature hd")
 
     }
 

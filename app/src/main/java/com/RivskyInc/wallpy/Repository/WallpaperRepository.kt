@@ -6,4 +6,5 @@ class WallpaperRepository {
 
     suspend fun  getWallpaper(query : String) = RetrofitInstance.apiService.getWallpapers(query)
 
+    suspend fun getWallpaperPopular(query : String) = RetrofitInstance.apiService.getWallpapers(query)
 }
