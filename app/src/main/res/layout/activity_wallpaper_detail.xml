@@ -18,18 +18,42 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/buttonSetWallpaper"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:backgroundTint="@color/orange"
-        android:fontFamily="@font/roboto_semi"
-        android:text="SET WALLPAPER"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/photo_view" />
+        app:layout_constraintTop_toBottomOf="@+id/photo_view">
 
+        <Button
+            android:id="@+id/buttonSetWallpaper"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="@color/orange"
+            android:fontFamily="@font/roboto_semi"
+            android:text="SET HOME"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/buttonSetWallpaperLock"
+            app:layout_constraintHorizontal_bias="0.261"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/photo_view" />
+
+        <Button
+            android:id="@+id/buttonSetWallpaperLock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="@color/orange"
+            android:fontFamily="@font/roboto_semi"
+            android:layout_marginStart="5dp"
+            android:text="SET  LOCK "
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.728"
+            app:layout_constraintStart_toStartOf="@id/buttonSetWallpaper"
+            app:layout_constraintTop_toBottomOf="@+id/photo_view" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

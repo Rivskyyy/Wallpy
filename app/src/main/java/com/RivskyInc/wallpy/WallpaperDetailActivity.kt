@@ -19,7 +19,7 @@ import java.io.IOException
 
 class WallpaperDetailActivity : AppCompatActivity() {
 
-    private lateinit var binding : ActivityWallpaperDetailBinding
+    private lateinit var binding: ActivityWallpaperDetailBinding
 
     @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,45 +29,93 @@ class WallpaperDetailActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
-
         val url = intent.getStringExtra("URL")
 
-         Glide.with(this).load(url).into(binding.photoView)
+        Glide.with(this).load(url).into(binding.photoView)
 
 
+        binding.buttonSetWallpaperLock.setOnClickListener {
 
-        binding.buttonSetWallpaper.setOnClickListener {
+            Toast.makeText(
+                this@WallpaperDetailActivity,
+                "Loading...", Toast.LENGTH_LONG
+            ).show()
 
-            GlobalScope.launch(Dispatchers.IO){
+            GlobalScope.launch(Dispatchers.IO) {
                 val displayMetrics = DisplayMetrics()
                 windowManager.defaultDisplay.getMetrics(displayMetrics)
 
-                val height = displayMetrics.heightPixels  * 4
-                val width = displayMetrics.widthPixels  * 4
-                var result : Bitmap = Picasso.get().load(url).get()
+                val height = displayMetrics.heightPixels * 2
+                val width = displayMetrics.widthPixels * 2
+                var result: Bitmap = Picasso.get().load(url).get()
 
 
                 var wallpManger = WallpaperManager.getInstance(this@WallpaperDetailActivity)
                 wallpManger.suggestDesiredDimensions(height, width)
                 val finHeigt = wallpManger.desiredMinimumHeight
-                val finWidht  = wallpManger.desiredMinimumWidth
+                val finWidht = wallpManger.desiredMinimumWidth
 
                 try {
 
+                    val walp = Bitmap.createScaledBitmap(result, finHeigt, finWidht, true);
+
+                    wallpManger.setBitmap(
+                        walp,
+                        null,
+                        true,
+                        WallpaperManager.FLAG_LOCK
+                    )
+
+                    // wallpManger.setBitmap(walp)
+
+                    this@WallpaperDetailActivity.runOnUiThread(Runnable {
+                        Toast.makeText(
+                            this@WallpaperDetailActivity,
+                            "Wallpapers changed successfully", Toast.LENGTH_SHORT
+                        ).show()
+                    })
+                } catch (ex: IOException) {
+
+                }
+
+            }
+        }
+
+        binding.buttonSetWallpaper.setOnClickListener {
+
+                Toast.makeText(
+                    this@WallpaperDetailActivity,
+                    "Loading...", Toast.LENGTH_LONG
+                ).show()
+
+            GlobalScope.launch(Dispatchers.IO) {
+                val displayMetrics = DisplayMetrics()
+                windowManager.defaultDisplay.getMetrics(displayMetrics)
+
+                val height = displayMetrics.heightPixels * 3
+                val width = displayMetrics.widthPixels * 3
+                var result: Bitmap = Picasso.get().load(url).get()
 
 
-                    val walp   = Bitmap.createScaledBitmap(result , finHeigt, finWidht, true);
-                  //  wallpManger.setBitmap(result, null, true, WallpaperManager.FLAG_SYSTEM)
+                var wallpManger = WallpaperManager.getInstance(this@WallpaperDetailActivity)
+                wallpManger.suggestDesiredDimensions(height, width)
+                val finHeigt = wallpManger.desiredMinimumHeight
+                val finWidht = wallpManger.desiredMinimumWidth
+
+                try {
+
+                    val walp = Bitmap.createScaledBitmap(result, finHeigt, finWidht, true);
+                    //  wallpManger.setBitmap(result, null, true, WallpaperManager.FLAG_SYSTEM)
 
                     wallpManger.setBitmap(walp)
 
-
-
                     this@WallpaperDetailActivity.runOnUiThread(Runnable {
-                        Toast.makeText(this@WallpaperDetailActivity,
-                            "Wallpapers changed successfully", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(
+                            this@WallpaperDetailActivity,
+                            "Wallpapers changed successfully", Toast.LENGTH_SHORT
+                        ).show()
                     })
-                }catch (ex : IOException){
+                } catch (ex: IOException) {
 
                 }
 
