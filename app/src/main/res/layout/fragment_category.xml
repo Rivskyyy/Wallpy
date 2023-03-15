@@ -9,7 +9,7 @@
     android:orientation="vertical"
    >
 
-    <TextView
+    <android.widget.Button
         android:id="@+id/textButtonNature"
         android:layout_width="match_parent"
         android:layout_height="90dp"
@@ -23,7 +23,7 @@
         android:textSize="20sp"
         />
 
-    <TextView
+    <android.widget.Button
         android:id="@+id/buttonSpace"
         android:layout_width="match_parent"
         android:layout_height="90dp"
@@ -40,7 +40,7 @@
         />
 
 
-    <TextView
+    <android.widget.Button
         android:id="@+id/buttonMinimalism"
         android:layout_width="match_parent"
         android:layout_height="90dp"
@@ -55,7 +55,7 @@
         android:background="@drawable/mini"
         android:backgroundTintMode="add"
         />
-    <TextView
+    <android.widget.Button
         android:id="@+id/buttonBlack"
         android:layout_width="match_parent"
         android:layout_height="90dp"
@@ -72,7 +72,7 @@
         />
 
 
-    <TextView
+    <android.widget.Button
         android:id="@+id/buttonAnimal"
         android:layout_width="match_parent"
         android:layout_height="90dp"

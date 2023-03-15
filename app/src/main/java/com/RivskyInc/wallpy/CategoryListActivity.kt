@@ -1,11 +1,8 @@
-package com.RivskyInc.wallpy.fragments
+package com.RivskyInc.wallpy
 
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
@@ -14,30 +11,32 @@ import com.RivskyInc.wallpy.Adapter.Adapter
 import com.RivskyInc.wallpy.Repository.WallpaperRepository
 import com.RivskyInc.wallpy.ViewModelFactory.ViewModel
 import com.RivskyInc.wallpy.ViewModelFactory.WallpaperViewModelFactory
-import com.RivskyInc.wallpy.databinding.FragmentPopularBinding
+import com.RivskyInc.wallpy.databinding.ActivityCategoryListBinding
 
+class CategoryListActivity : AppCompatActivity() {
 
-class PopularFragment : Fragment() {
-
-    private lateinit var binding: FragmentPopularBinding
+    private lateinit var binding : ActivityCategoryListBinding
     private lateinit var viewModel: ViewModel
     private lateinit var wallAdapter: Adapter
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        // Inflate the layout for this fragment
 
-        binding = FragmentPopularBinding.inflate(layoutInflater, container, false)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityCategoryListBinding.inflate(layoutInflater)
+
+        setContentView(binding.root)
 
         val repository = WallpaperRepository()
         val viewModelFactory = WallpaperViewModelFactory(repository)
 
         viewModel =
-            ViewModelProvider(this@PopularFragment, viewModelFactory)[ViewModel::class.java]
+            ViewModelProvider(this, viewModelFactory)[ViewModel::class.java]
         setupRecyclerView()
 
-        viewModel.getWallpaper("4k wallpapers")
+        val getCategory = intent.getStringExtra("category")
+
+        if (getCategory != null) {
+            viewModel.getWallpaper(getCategory)
+        }
 
 
 
@@ -51,14 +50,14 @@ class PopularFragment : Fragment() {
 //        })
         try {
 
-            viewModel.wallpaperList.observe(viewLifecycleOwner, Observer {
+            viewModel.wallpaperList.observe(this, Observer {
 
                 if (it.isSuccessful) {
                     val response = it.body()
 
                     if (response != null) {
                         wallAdapter.setWallpaperData(
-                            response.photos as ArrayList<Photo>,this.requireContext()
+                            response.photos as ArrayList<Photo>,this@CategoryListActivity
                         )
                     }
 
@@ -71,22 +70,21 @@ class PopularFragment : Fragment() {
         }
 
 
-        return binding.root
+
 
 
     }
 
-    private fun setupRecyclerView() {
+private fun setupRecyclerView() {
 
-        wallAdapter = Adapter()
+    wallAdapter = Adapter()
 
-        binding.recyclerViewPopular.apply {
+    binding.recyclerViewCategoryList.apply {
 
-            adapter = wallAdapter
-            layoutManager = GridLayoutManager(this@PopularFragment.context, 2)
+        adapter = wallAdapter
+        layoutManager = GridLayoutManager(this@CategoryListActivity, 2)
 
 
-        }
     }
-    }
-
+}
+}

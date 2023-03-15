@@ -63,7 +63,7 @@ class HomeFragment : Fragment() {
                     if (response != null) {
                         wallAdapter.setWallpaperData(
                             response.photos as ArrayList<Photo>,
-                            this
+                            this.requireContext()
                         )
                     }
 

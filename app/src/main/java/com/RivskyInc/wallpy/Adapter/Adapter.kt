@@ -17,9 +17,9 @@ class Adapter : RecyclerView.Adapter<Adapter.WallpaperViewHolder>() {
     var list = ArrayList<Photo>()
     lateinit var context_ : Context
 
-    fun setWallpaperData(list: ArrayList<Photo>, context: Fragment){
+    fun setWallpaperData(list: ArrayList<Photo>, context: Context){
         this.list = list
-        context_ = context.requireContext()
+        context_ = context
 
         notifyDataSetChanged()
 

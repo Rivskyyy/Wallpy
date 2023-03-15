@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.RivskyInc.wallpy.CategoryListActivity
 import com.RivskyInc.wallpy.WallpaperDetailActivity
 import com.RivskyInc.wallpy.databinding.FragmentCategoryBinding
 
@@ -41,6 +42,27 @@ class CategoryFragment : Fragment() {
         // shove our styled text into the Button
         // shove our styled text into the Button
         buttonMinimalism.setText(text, TextView.BufferType.SPANNABLE)
+
+
+        binding.textButtonNature.setOnClickListener {
+
+            val nature = "nature wallpapers hd"
+            val intent = Intent(this@CategoryFragment.requireContext(),
+                CategoryListActivity::class.java)
+            intent.putExtra("category", nature )
+            startActivity(intent)
+
+        }
+
+        binding.buttonSpace.setOnClickListener {
+
+            val space = "space wallpapers hd"
+            val intent = Intent(this@CategoryFragment.requireContext(),
+                CategoryListActivity::class.java)
+            intent.putExtra("category", space )
+            startActivity(intent)
+
+        }
 
         return binding.root
     }
