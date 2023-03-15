@@ -25,31 +25,20 @@ class CategoryFragment : Fragment() {
     ): View {
         binding = FragmentCategoryBinding.inflate(layoutInflater, container, false)
 
-        binding.textButtonNature.setOnClickListener {
-            val intent = Intent(this@CategoryFragment.context, WallpaperDetailActivity::class.java)
-
-            startActivity(intent)
-
-        }
-       val  buttonMinimalism =   binding.buttonMinimalism
+        val buttonMinimalism = binding.buttonMinimalism
         val text = SpannableString("M I N I M A L I S M ")
-        // make "Clicks" (characters 0 to 5) Red
-        // make "Clicks" (characters 0 to 5) Red
         text.setSpan(ForegroundColorSpan(Color.BLACK), 0, 10, 0)
-        // make "Here" (characters 6 to 10) Blue
-        // make "Here" (characters 6 to 10) Blue
         text.setSpan(ForegroundColorSpan(Color.WHITE), 11, 16, 0)
-        // shove our styled text into the Button
-        // shove our styled text into the Button
         buttonMinimalism.setText(text, TextView.BufferType.SPANNABLE)
-
-
-        binding.textButtonNature.setOnClickListener {
+        
+        binding.buttonNature.setOnClickListener {
 
             val nature = "nature wallpapers hd"
-            val intent = Intent(this@CategoryFragment.requireContext(),
-                CategoryListActivity::class.java)
-            intent.putExtra("category", nature )
+            val intent = Intent(
+                this@CategoryFragment.requireContext(),
+                CategoryListActivity::class.java
+            )
+            intent.putExtra("category", nature)
             startActivity(intent)
 
         }
@@ -57,12 +46,82 @@ class CategoryFragment : Fragment() {
         binding.buttonSpace.setOnClickListener {
 
             val space = "space wallpapers hd"
-            val intent = Intent(this@CategoryFragment.requireContext(),
-                CategoryListActivity::class.java)
-            intent.putExtra("category", space )
+            val intent = Intent(
+                this@CategoryFragment.requireContext(),
+                CategoryListActivity::class.java
+            )
+            intent.putExtra("category", space)
             startActivity(intent)
 
         }
+        binding.buttonMinimalism.setOnClickListener {
+
+            val minimalism = "minimalism wallpapers hd"
+            val intent = Intent(
+                this@CategoryFragment.requireContext(),
+                CategoryListActivity::class.java
+            )
+            intent.putExtra("category", minimalism)
+            startActivity(intent)
+
+        }
+        binding.buttonBlack.setOnClickListener {
+
+            val black = "black wallpapers hd"
+            val intent = Intent(
+                this@CategoryFragment.requireContext(),
+                CategoryListActivity::class.java
+            )
+            intent.putExtra("category", black)
+            startActivity(intent)
+
+        }
+        binding.buttonAnimal.setOnClickListener {
+
+            val animals = "animals wallpapers hd"
+            val intent = Intent(
+                this@CategoryFragment.requireContext(),
+                CategoryListActivity::class.java
+            )
+            intent.putExtra("category", animals)
+            startActivity(intent)
+
+        }
+        binding.buttonCars.setOnClickListener {
+
+            val cars = "cars wallpapers hd"
+            val intent = Intent(
+                this@CategoryFragment.requireContext(),
+                CategoryListActivity::class.java
+            )
+            intent.putExtra("category", cars)
+            startActivity(intent)
+
+        }
+        binding.buttonSky.setOnClickListener {
+
+            val sky = "sky wallpapers hd"
+            val intent = Intent(
+                this@CategoryFragment.requireContext(),
+                CategoryListActivity::class.java
+            )
+            intent.putExtra("category", sky)
+            startActivity(intent)
+
+        }
+
+        binding.buttonMotivation.setOnClickListener {
+
+            val motivation = "motivation"
+            val intent = Intent(
+                this@CategoryFragment.requireContext(),
+                CategoryListActivity::class.java
+            )
+            intent.putExtra("category", motivation)
+            startActivity(intent)
+
+        }
+
 
         return binding.root
     }
