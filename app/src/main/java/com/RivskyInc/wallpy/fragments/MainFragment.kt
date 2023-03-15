@@ -22,11 +22,13 @@ private lateinit var binding : FragmentMainBinding
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentMainBinding.inflate(layoutInflater, container, false )
-        initViewPager()
 
-        initTabLayout()
-        initToolBar()
+            binding = FragmentMainBinding.inflate(layoutInflater, container, false)
+            initViewPager()
+
+            initTabLayout()
+            initToolBar()
+
         return binding.root
     }
 

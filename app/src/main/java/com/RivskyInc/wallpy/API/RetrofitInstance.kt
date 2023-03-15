@@ -10,6 +10,7 @@ class RetrofitInstance {
 
     companion object{
 
+
         val retrofitFactory : Retrofit = Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())

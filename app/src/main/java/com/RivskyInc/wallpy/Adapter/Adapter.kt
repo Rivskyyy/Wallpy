@@ -2,6 +2,7 @@ package com.RivskyInc.wallpy.Adapter
 
 import android.content.Context
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
@@ -40,8 +41,7 @@ class Adapter : RecyclerView.Adapter<Adapter.WallpaperViewHolder>() {
 
     override fun onBindViewHolder(holder: WallpaperViewHolder, position: Int) {
 
-     Glide.with(holder.itemView).load(list[position].src.portrait).into(holder.binding.imageViewRaw)
-
+            Glide.with(holder.itemView).load(list[position].src.portrait).into(holder.binding.imageViewRaw)
 
         holder.itemView.setOnClickListener {
 

@@ -10,10 +10,12 @@ import retrofit2.Response
 
 class ViewModel(val repository : WallpaperRepository) : ViewModel() {
 
+
     lateinit var wallpaperList : MutableLiveData<Response<WallpaperResponse>>
     lateinit var wallpaperListPopular : MutableLiveData<Response<WallpaperResponse>>
 
     init {
+
     wallpaperList = MutableLiveData()
         wallpaperListPopular = MutableLiveData()
         getWallpaperPopular("popular wallpaper hd")
