@@ -15,6 +15,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.RivskyInc.wallpy.API.Photo
 import com.RivskyInc.wallpy.Adapter.Adapter
+import com.RivskyInc.wallpy.MainActivity
 import com.RivskyInc.wallpy.Repository.WallpaperRepository
 import com.RivskyInc.wallpy.ViewModelFactory.ViewModel
 import com.RivskyInc.wallpy.ViewModelFactory.WallpaperViewModelFactory
@@ -34,11 +35,11 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-
         // Inflate the layout for this fragment
         binding = FragmentHomeBinding.inflate(layoutInflater, container, false)
 
         binding.buttonSearch.setOnClickListener {
+
 
             val searched = binding.editTextSearch.text.toString()
             viewModel.getWallpaper(searched)
