@@ -93,7 +93,7 @@ class WallpaperDetailActivity : AppCompatActivity() {
                 windowManager.defaultDisplay.getMetrics(displayMetrics)
 
                 val height = displayMetrics.heightPixels * 3
-                val width = displayMetrics.widthPixels * 3
+                val width = displayMetrics.widthPixels  * 3
                 var result: Bitmap = Picasso.get().load(url).get()
 
 
@@ -104,7 +104,7 @@ class WallpaperDetailActivity : AppCompatActivity() {
 
                 try {
 
-                    val walp = Bitmap.createScaledBitmap(result, finHeigt, finWidht, true);
+                   val walp = Bitmap.createScaledBitmap(result, finHeigt, finWidht, true);
                     //  wallpManger.setBitmap(result, null, true, WallpaperManager.FLAG_SYSTEM)
 
                     wallpManger.setBitmap(walp)

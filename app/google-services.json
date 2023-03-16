@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1053403747152",
+    "project_id": "wallpy---wallpapers-hd",
+    "storage_bucket": "wallpy---wallpapers-hd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1053403747152:android:a9ab79c5506d74e9671255",
+        "android_client_info": {
+          "package_name": "com.RivskyInc.wallpy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1053403747152-lq45j7p8a5mq2vogfrnsq9v7v8qo88s5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwewwSVE5S51nZ3b18XmIETHtk3AIgXKY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1053403747152-lq45j7p8a5mq2vogfrnsq9v7v8qo88s5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      },
+      "admob_app_id": "ca-app-pub-7124048404999597~3317152613"
+    }
+  ],
+  "configuration_version": "1"
+}
