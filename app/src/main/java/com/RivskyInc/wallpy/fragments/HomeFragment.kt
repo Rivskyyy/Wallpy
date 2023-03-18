@@ -15,6 +15,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.RivskyInc.wallpy.API.Photo
 import com.RivskyInc.wallpy.Adapter.Adapter
+import com.RivskyInc.wallpy.FilterSearch
 import com.RivskyInc.wallpy.MainActivity
 import com.RivskyInc.wallpy.Repository.WallpaperRepository
 import com.RivskyInc.wallpy.ViewModelFactory.ViewModel
@@ -22,13 +23,15 @@ import com.RivskyInc.wallpy.ViewModelFactory.WallpaperViewModelFactory
 import com.RivskyInc.wallpy.WallpaperDetailActivity
 import com.RivskyInc.wallpy.databinding.FragmentHomeBinding
 import com.bumptech.glide.request.ErrorRequestCoordinator
+import java.util.Locale.filter
 
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(), FilterSearch {
 
     private lateinit var binding: FragmentHomeBinding
     private lateinit var viewModel: ViewModel
     private lateinit var wallAdapter: Adapter
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,11 +41,19 @@ class HomeFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentHomeBinding.inflate(layoutInflater, container, false)
 
+
         binding.buttonSearch.setOnClickListener {
 
+            var searched = binding.editTextSearch.text.toString().lowercase()
 
-            val searched = binding.editTextSearch.text.toString()
-            viewModel.getWallpaper(searched)
+            if (filter(searched) == true  ) {
+                viewModel.getWallpaper(searched)
+            } else {
+
+                viewModel.getWallpaper("wallpapers hd")
+
+            }
+
         }
 
         val repository = WallpaperRepository()
