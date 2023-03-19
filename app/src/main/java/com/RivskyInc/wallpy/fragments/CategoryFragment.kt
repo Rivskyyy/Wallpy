@@ -12,6 +12,7 @@ import android.view.animation.AnimationUtils
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.RivskyInc.wallpy.CategoryListActivity
+import com.RivskyInc.wallpy.MainActivity
 import com.RivskyInc.wallpy.R
 import com.RivskyInc.wallpy.WallpaperDetailActivity
 import com.RivskyInc.wallpy.databinding.FragmentCategoryBinding

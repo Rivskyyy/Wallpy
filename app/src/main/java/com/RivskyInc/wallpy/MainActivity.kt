@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding : ActivityMainBinding
     private var mInterstitialAd: InterstitialAd? = null
     private final var TAG = "MainActivity"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -24,26 +25,26 @@ class MainActivity : AppCompatActivity() {
 
         MobileAds.initialize(this)
 
-        var adRequest = AdRequest.Builder().build()
+        //var adRequest = AdRequest.Builder().build()
 
-        InterstitialAd.load(this,"ca-app-pub-7124048404999597/9920684440", adRequest, object : InterstitialAdLoadCallback() {
-            override fun onAdFailedToLoad(adError: LoadAdError) {
-                Log.d(TAG, adError.toString())
-                mInterstitialAd = null
-            }
+//        InterstitialAd.load(this,"ca-app-pub-7124048404999597/9920684440", adRequest, object : InterstitialAdLoadCallback() {
+//            override fun onAdFailedToLoad(adError: LoadAdError) {
+//                Log.d(TAG, adError.toString())
+//                mInterstitialAd = null
+//            }
+//
+//            override fun onAdLoaded(interstitialAd: InterstitialAd) {
+//                Log.d(TAG, "Ad was loaded.")
+//                mInterstitialAd = interstitialAd
+//            }
+//        })
 
-            override fun onAdLoaded(interstitialAd: InterstitialAd) {
-                Log.d(TAG, "Ad was loaded.")
-                mInterstitialAd = interstitialAd
-            }
-        })
-
-        contentCallBack()
-        showAd()
+         // contentCallBack()
+        //showAd()
 
     }
 
-     fun showAd() {
+  public  fun showAd() {
          if (mInterstitialAd != null) {
              mInterstitialAd?.show(this)
          } else {
@@ -85,7 +86,7 @@ class MainActivity : AppCompatActivity() {
     @Deprecated("Deprecated in Java")
     override fun onBackPressed() {
         super.onBackPressed()
-        showAd()
+
         this.finishAffinity()
 
     }

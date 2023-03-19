@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.RivskyInc.wallpy.API.Photo
+import com.RivskyInc.wallpy.MainActivity
 import com.RivskyInc.wallpy.WallpaperDetailActivity
 import com.RivskyInc.wallpy.databinding.ItemRawWallpaperBinding
 import com.RivskyInc.wallpy.fragments.HomeFragment
@@ -45,9 +46,11 @@ class Adapter : RecyclerView.Adapter<Adapter.WallpaperViewHolder>() {
 
         holder.itemView.setOnClickListener {
 
+
             val intent = Intent(context_, WallpaperDetailActivity::class.java)
             intent.putExtra("URL", list[position].src.portrait)
             context_.startActivities(arrayOf(intent))
+
         }
     }
 }
